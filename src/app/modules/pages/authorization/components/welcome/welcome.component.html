@@ -1,0 +1,21 @@
+<div class="card-wrapper">
+  <mat-card class="welcome-card">
+    <mat-card-header>
+      <mat-card-title>Welcome to test project</mat-card-title>
+      <mat-card-subtitle>Sign in to get started</mat-card-subtitle>
+    </mat-card-header>
+    <ng-container *ngIf="logoSettings">
+      <img class="logo" alt="logo fortvision company"
+           [ngSrc]="logoSettings.src"
+           [width]="logoSettings.width"
+           [height]="logoSettings.height">
+    </ng-container>
+    <mat-card-actions class="buttons">
+      <button color="primary" mat-stroked-button>Sign in</button>
+      <button mat-button>Sign up</button>
+    </mat-card-actions>
+    <mat-card-footer class="card-footer">
+      &#169;Alexei Kuharenko
+    </mat-card-footer>
+  </mat-card>
+</div>
