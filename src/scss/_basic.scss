@@ -1,0 +1,26 @@
+/*
+  BASIC
+*/
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.card-wrapper {
+  max-width: 400px;
+  padding: 3em;
+  margin: auto;
+}
+
+.card-footer {
+  box-sizing: border-box;
+  opacity: 0.5;
+  margin-left: 5px;
+  padding: 1em;
+}
