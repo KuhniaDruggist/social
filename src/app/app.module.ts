@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthorizationModule } from './modules/pages/authorization/authorization.module';
 import { HomeModule } from './modules/pages/home/home.module';
+import { FormInputComponent } from './modules/common/form-input/form-input.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HomeModule } from './modules/pages/home/home.module';
     AppRoutingModule,
     AuthorizationModule,
     HomeModule,
+    FormInputComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
