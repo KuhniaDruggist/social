@@ -1,0 +1,36 @@
+<div class="card-wrapper">
+  <ng-container *ngIf="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>Sign in to FORTVISION social</mat-card-title>
+        </mat-card-header>
+        <div class="fields">
+          <ng-container *ngIf="getLoginControl() as control">
+            <app-form-input
+              [formControl]="control"
+              formControlLabel="Username or email address"
+              formControlType="text"
+            ></app-form-input>
+          </ng-container>
+          <app-form-input
+            [formControl]="getPasswordControl()"
+            formControlLabel="Password"
+            formControlType="password"
+          ></app-form-input>
+        </div>
+        <mat-card-actions class="buttons">
+          <button class="sign-btn" type="submit" color="primary" mat-stroked-button>Sign in</button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+    <mat-card>
+      <div class="question-wrapper">
+        <p class="question">New to FORTVISION social?</p>
+        <p class="answer">
+          <a mat-button>Create an account</a>.
+        </p>
+      </div>
+    </mat-card>
+  </ng-container>
+</div>
