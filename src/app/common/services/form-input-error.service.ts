@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class FormInputErrorService {
 
-  public getErrorMessage(control: AbstractControl, controlName: string): string {
+  public getErrorMessage(control: AbstractControl): string {
     if (control.hasError('required')) {
-      return `${controlName} is required`;
+      return 'Field is required';
     }
     if (control.hasError('email')) {
       return 'Please enter a valid email address';
