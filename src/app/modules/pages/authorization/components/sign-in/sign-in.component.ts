@@ -30,7 +30,7 @@ export class SignInComponent implements OnInit {
 
   public isLoading: boolean;
 
-  public routerSignUp = RouterLinks.SIGN_UP;
+  public routerSignUp = `../${RouterLinks.SIGN_UP}`;
 
   constructor() {
     this.form = null;

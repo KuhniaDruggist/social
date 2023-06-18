@@ -28,7 +28,7 @@ export class SignUpComponent implements OnInit {
 
   public form: FormGroup | null;
 
-  public routerLink = RouterLinks.SIGN_IN
+  public routerLink = `../${RouterLinks.SIGN_IN}`;
 
   constructor() {
     this.form = null;
