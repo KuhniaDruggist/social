@@ -1,0 +1,30 @@
+<div class="card-wrapper">
+  <ng-container *ngIf="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Welcome to FORTVISION!</mat-card-title>
+          <mat-card-subtitle>Let's begin</mat-card-subtitle>
+          <mat-card-actions>
+            <button mat-button [routerLink]="routerLink">
+              Sign in
+              <mat-icon>arrow_right_alt</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card-header>
+        <div class="fields">
+          <ng-container *ngIf="getEmailControl() as control">
+            <app-form-input
+              [formControl]="control"
+              formControlLabel="Enter your email"
+              formControlType="email"
+            ></app-form-input>
+          </ng-container>
+        </div>
+        <mat-card-actions class="buttons">
+          <button class="sign-btn" type="submit" color="primary" mat-stroked-button>Continue</button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </ng-container>
+</div>
