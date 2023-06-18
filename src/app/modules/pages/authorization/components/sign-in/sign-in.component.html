@@ -13,11 +13,13 @@
               formControlType="text"
             ></app-form-input>
           </ng-container>
-          <app-form-input
-            [formControl]="getPasswordControl()"
-            formControlLabel="Password"
-            formControlType="password"
-          ></app-form-input>
+          <ng-container *ngIf="getPasswordControl() as control">
+            <app-form-input
+              [formControl]="control"
+              formControlLabel="Password"
+              formControlType="password"
+            ></app-form-input>
+          </ng-container>
         </div>
         <mat-card-actions class="buttons">
           <button class="sign-btn" type="submit" color="primary" mat-stroked-button>Sign in</button>
