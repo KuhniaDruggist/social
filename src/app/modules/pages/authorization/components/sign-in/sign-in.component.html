@@ -1,7 +1,7 @@
 <div class="card-wrapper">
   <ng-container *ngIf="form">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <mat-card class="card">
+      <mat-card>
         <mat-card-header>
           <mat-card-title>Sign in to FORTVISION social</mat-card-title>
         </mat-card-header>
@@ -30,7 +30,7 @@
       <div class="question-wrapper">
         <p class="question">New to FORTVISION social?</p>
         <p class="answer">
-          <a mat-button>Create an account</a>.
+          <a mat-button [routerLink]="routerSignUp">Create an account</a>.
         </p>
       </div>
     </mat-card>

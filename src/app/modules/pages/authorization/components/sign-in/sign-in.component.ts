@@ -5,15 +5,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormInputComponent } from '../../../../common/form-input/form-input.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgIf} from '@angular/common';
-import { Subscription } from 'rxjs';
 import { FormControlCustom } from '../../../../../common/models/form-control-custom';
+import { RouterLinks } from '../../../../../common/constants/router-links';
+import { RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
   standalone: true,
-  imports: [MatCardModule, MatInputModule, MatButtonModule, FormInputComponent, ReactiveFormsModule, NgIf],
+  imports: [
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    FormInputComponent,
+    ReactiveFormsModule,
+    NgIf,
+    RouterLinkWithHref,
+  ],
 })
 export class SignInComponent implements OnInit {
 
@@ -21,7 +30,7 @@ export class SignInComponent implements OnInit {
 
   public isLoading: boolean;
 
-  private subscription = new Subscription();
+  public routerSignUp = RouterLinks.SIGN_UP;
 
   constructor() {
     this.form = null;

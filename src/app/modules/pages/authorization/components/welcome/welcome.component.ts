@@ -16,7 +16,9 @@ export class WelcomeComponent implements OnInit {
 
   public logoSettings: { src: string; width: number; height: number; } | undefined;
 
-  public routerLink = RouterLinks.SIGN_IN;
+  public routerSignIn = RouterLinks.SIGN_IN;
+
+  public routerSignUp = RouterLinks.SIGN_UP;
 
   ngOnInit() {
     this.logoSettings = {
