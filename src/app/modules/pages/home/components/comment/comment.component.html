@@ -1,0 +1,19 @@
+<mat-card class="comment">
+  <mat-card-header>
+    <div class="avatar-wrapper" mat-card-avatar *ngIf="comment?.avatar as avatar else avatarDefaults">
+      <app-user-avatar [src]="avatar" [alt]="'avatar user of comment'" [width]="32" [height]="32"></app-user-avatar>
+    </div>
+    <mat-card-title>{{comment?.name}}</mat-card-title>
+    <mat-card-subtitle>
+      <a href="/home" aria-label="Link on profile user of comment">{{comment?.username}}</a>
+    </mat-card-subtitle>
+    <p class="comment--time">{{comment?.timestamp}}</p>
+  </mat-card-header>
+  <mat-card-content>
+    <p class="comment--text">{{comment?.text}}</p>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #avatarDefaults>
+  <app-user-avatar [width]="32" [height]="32"></app-user-avatar>
+</ng-template>
