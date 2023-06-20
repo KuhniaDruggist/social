@@ -19,11 +19,15 @@ export class UserLogoComponent {
   public height: number;
 
   @Input()
+  public alt: string;
+
+  @Input()
   public src: string;
 
   constructor() {
     this.width = 38;
     this.height = 38;
+    this.alt ='user logo default'
     this.src = '/assets/img/user-logo.jpg';
   }
 
