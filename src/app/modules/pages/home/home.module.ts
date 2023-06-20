@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { PostsComponent } from './components/posts/posts.component';
-import { PostComponent } from "./components/post/post.component";
+import { PostComponent } from './components/post/post.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { PostComponent } from "./components/post/post.component";
     CommonModule,
     HomeRoutingModule,
     PostComponent,
+    CommentsComponent,
   ]
 })
 export class HomeModule { }
