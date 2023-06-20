@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { UserLogoComponent } from "../../../../common/user-logo/user-logo.component";
+import { UserAvatarComponent } from "../../../../common/user-avatar/user-avatar.component";
 
 @Component({
   selector: 'app-home',
@@ -18,7 +18,7 @@ import { UserLogoComponent } from "../../../../common/user-logo/user-logo.compon
     NgOptimizedImage,
     NgIf,
     RouterOutlet,
-    UserLogoComponent,
+    UserAvatarComponent,
   ],
 })
 export class HomeComponent implements OnInit {

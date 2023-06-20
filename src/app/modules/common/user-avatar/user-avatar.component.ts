@@ -2,15 +2,15 @@ import { Component, Input } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
-  selector: 'app-user-logo',
-  templateUrl: './user-logo.component.html',
-  styleUrls: ['./user-logo.component.scss'],
+  selector: 'app-user-avatar',
+  templateUrl: './user-avatar.component.html',
+  styleUrls: ['./user-avatar.component.scss'],
   standalone: true,
   imports: [
     NgOptimizedImage,
   ]
 })
-export class UserLogoComponent {
+export class UserAvatarComponent {
 
   @Input()
   public width: number;
@@ -28,7 +28,7 @@ export class UserLogoComponent {
     this.width = 38;
     this.height = 38;
     this.alt ='avatar user by default'
-    this.src = '/assets/img/user-logo.jpg';
+    this.src = '/assets/img/default-user-avatar.jpg';
   }
 
 }

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { AuthorizationModule } from './modules/pages/authorization/authorization.module';
 import { HomeModule } from './modules/pages/home/home.module';
 import { FormInputComponent } from './modules/common/form-input/form-input.component';
-import { UserLogoComponent } from './modules/common/user-logo/user-logo.component';
+import { UserAvatarComponent } from './modules/common/user-avatar/user-avatar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { UserLogoComponent } from './modules/common/user-logo/user-logo.componen
     AuthorizationModule,
     HomeModule,
     FormInputComponent,
-    UserLogoComponent,
+    UserAvatarComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
