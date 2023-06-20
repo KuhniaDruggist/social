@@ -1,11 +1,11 @@
 <mat-card class="post">
   <mat-card-header>
     <div class="avatar-wrapper" mat-card-avatar *ngIf="postInfo?.userInfo?.avatar as avatar else avatarDefault">
-      <img class="avatar" alt="user avatar" [ngSrc]="avatar" width="38" height="38" priority/>
+      <app-user-avatar [src]="avatar" [alt]="'avatar user of post'" [width]="38" [height]="38"></app-user-avatar>
     </div>
     <mat-card-title>{{postInfo?.userInfo?.name}}</mat-card-title>
     <mat-card-subtitle>
-      <a href="/home" aria-label="Link on user profile">{{postInfo?.userInfo?.username}}</a>
+      <a href="/home" aria-label="Link on profile user of post">{{postInfo?.userInfo?.username}}</a>
     </mat-card-subtitle>
     <div class="date-time">
       <p class="date">{{postInfo?.timestamp?.date}}</p>
@@ -37,8 +37,9 @@
       </button>
     </div>
   </mat-card-actions>
+  <app-comments [comments]="postInfo?.comments"></app-comments>
 </mat-card>
 
 <ng-template #avatarDefault>
-  <app-user-logo></app-user-logo>
+  <app-user-avatar></app-user-avatar>
 </ng-template>
