@@ -27,7 +27,7 @@ export class UserLogoComponent {
   constructor() {
     this.width = 38;
     this.height = 38;
-    this.alt ='user logo default'
+    this.alt ='avatar user by default'
     this.src = '/assets/img/user-logo.jpg';
   }
 
