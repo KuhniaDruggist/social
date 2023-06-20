@@ -1,0 +1,12 @@
+<div class="comments">
+  <ng-container *ngFor="let comment of comments">
+    <app-comment [comment]="comment"></app-comment>
+  </ng-container>
+  <div class="send">
+    <app-user-avatar class="send--avatar" [alt]="'avatar user'" [width]="32" [height]="32"></app-user-avatar>
+    <textarea placeholder="Add your comment..." class="send--input"></textarea>
+    <button class="send--btn" *ngIf="true" matSuffix mat-icon-button aria-label="Clear">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+</div>
