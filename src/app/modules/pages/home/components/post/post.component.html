@@ -1,0 +1,44 @@
+<mat-card class="post">
+  <mat-card-header>
+    <div class="avatar-wrapper" mat-card-avatar *ngIf="postInfo?.userInfo?.avatar as avatar else avatarDefault">
+      <img class="avatar" alt="user avatar" [ngSrc]="avatar" width="38" height="38" priority/>
+    </div>
+    <mat-card-title>{{postInfo?.userInfo?.name}}</mat-card-title>
+    <mat-card-subtitle>
+      <a href="/home" aria-label="Link on user profile">{{postInfo?.userInfo?.username}}</a>
+    </mat-card-subtitle>
+    <div class="date-time">
+      <p class="date">{{postInfo?.timestamp?.date}}</p>
+      <p class="time">{{postInfo?.timestamp?.time}}</p>
+    </div>
+  </mat-card-header>
+  <ng-container *ngIf="postInfo?.content?.img as src">
+    <img class="content-img" mat-card-image [ngSrc]="src" alt="Post graphic content" width="494" height="400" priority>
+  </ng-container>
+  <mat-card-content>
+    <p>{{postInfo?.content?.text}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="btn like-btn">
+      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <span>{{postInfo?.likes === 0 ? '' : postInfo?.likes}}</span>
+    </div>
+    <div class="btn btn--comment">
+      <button mat-icon-button aria-label="Example icon button with a heart icon">
+        <mat-icon>comment</mat-icon>
+      </button>
+      <span>{{postInfo?.comments?.length === 0 ? '' : postInfo?.comments?.length}}</span>
+    </div>
+    <div class="btn btn--share">
+      <button mat-icon-button aria-label="Example icon button with a heart icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #avatarDefault>
+  <app-user-logo></app-user-logo>
+</ng-template>
