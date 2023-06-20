@@ -1,17 +1,18 @@
 <mat-toolbar>
-  <span>Social Test</span>
-  <div class="user">
-    <ng-container *ngIf="userSrc else userDefault">
-      <img class="user--photo" alt="user photo" [ngSrc]="userSrc" width="38" height="38"/>
-    </ng-container>
-    <button mat-icon-button aria-label="User context menu">
-      <mat-icon>more_vert</mat-icon>
-    </button>
+  <div class="toolbar">
+    <span class="toolbar--title">Social Test</span>
+    <div class="user">
+      <ng-container *ngIf="userSrc else userDefault">
+        <img class="user--photo" alt="User photo" [ngSrc]="userSrc" width="38" height="38"/>
+      </ng-container>
+      <button class="user--btn" mat-icon-button aria-label="User context menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
   </div>
 </mat-toolbar>
+<router-outlet></router-outlet>
 
 <ng-template #userDefault>
-  <div class="user-icon-default">
-    <mat-icon>account_circle</mat-icon>
-  </div>
+  <app-user-logo></app-user-logo>
 </ng-template>

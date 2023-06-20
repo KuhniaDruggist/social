@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NgIf, NgOptimizedImage } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { NgIf, NgOptimizedImage } from '@angular/common';
+import { UserLogoComponent } from "../../../../common/user-logo/user-logo.component";
 
 @Component({
   selector: 'app-home',
@@ -15,6 +17,8 @@ import { NgIf, NgOptimizedImage } from '@angular/common';
     MatButtonModule,
     NgOptimizedImage,
     NgIf,
+    RouterOutlet,
+    UserLogoComponent,
   ],
 })
 export class HomeComponent implements OnInit {
@@ -22,7 +26,7 @@ export class HomeComponent implements OnInit {
   public userSrc: string | undefined;
 
   constructor() {
-    this.userSrc = 'https://bipbap.ru/wp-content/uploads/2017/04/0_7c779_5df17311_orig.jpg';
+    this.userSrc = '';
   }
 
   ngOnInit(): void {
