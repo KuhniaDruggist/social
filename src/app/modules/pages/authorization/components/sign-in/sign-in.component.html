@@ -21,8 +21,15 @@
             ></app-form-input>
           </ng-container>
         </div>
+        <p class="error-message" *ngIf="errorMessage">{{errorMessage}}</p>
         <mat-card-actions class="buttons">
-          <button class="sign-btn" type="submit" color="primary" mat-stroked-button>Sign in</button>
+          <button
+            mat-stroked-button
+            class="sign-btn"
+            type="submit"
+            color="primary"
+            [disabled]="!isSubmittingAllowed()"
+          >Sign in</button>
         </mat-card-actions>
       </mat-card>
     </form>

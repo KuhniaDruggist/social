@@ -8,6 +8,10 @@ import { NgIf} from '@angular/common';
 import { FormControlCustom } from '../../../../../common/models/form-control-custom';
 import { RouterLinks } from '../../../../../common/constants/router-links';
 import { RouterLinkWithHref } from '@angular/router';
+import { PreloaderFullPageService } from '../../../../../common/services/preloader-full-page.service';
+import { AuthService } from '../../../../../common/services/auth.service';
+import { finalize, Subscription } from 'rxjs';
+import { AuthFormModel } from '../../../../../common/models/auth-form-model';
 
 @Component({
   selector: 'app-sign-in',
@@ -32,16 +36,42 @@ export class SignInComponent implements OnInit {
 
   public routerSignUp = `../${RouterLinks.SIGN_UP}`;
 
-  constructor() {
+  public errorMessage: string;
+
+  private subscription = new Subscription();
+
+  constructor(
+    private readonly authService: AuthService,
+    private readonly preloaderFullPageService: PreloaderFullPageService,
+  ) {
     this.form = null;
+    this.errorMessage = '';
     this.isLoading = false;
   }
 
   public ngOnInit(): void {
+    this.initialForm();
+    this.subscribeOnFormValueChanges();
+  }
+
+  private initialForm(): void {
     this.form = new FormGroup({
       login: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
     })
+  }
+
+  private subscribeOnFormValueChanges(): void {
+    this.subscription.add(
+      this.form?.valueChanges
+        .subscribe({
+          next: () => {
+            if (this.errorMessage) {
+              this.errorMessage = '';
+            }
+          }
+        })
+    )
   }
 
   public getLoginControl(): FormControlCustom {
@@ -55,11 +85,25 @@ export class SignInComponent implements OnInit {
   public onSubmit(): void {
     if (this.isSubmittingAllowed()) {
       this.isLoading = true;
+      this.preloaderFullPageService.showSpinner();
+      this.subscription.add(
+        this.authService.login(this.form?.value)
+          .pipe(finalize(() => {
+            this.preloaderFullPageService.hideSpinner();
+            this.isLoading = false;
+          }))
+          .subscribe({
+            next: (userId: string) => {
+              void this.authService.doAfterAuth();
+            },
+            error: (err: string) => { this.errorMessage = err },
+          })
+      )
     }
   }
 
   public isSubmittingAllowed(): boolean {
-    const { login, password } = this.form?.value as { login: string, password: string };
+    const { login, password } = this.form?.value as AuthFormModel;
     return (this.form?.valid && !!login.trim() && !!password.trim() && !this.isLoading) as boolean;
   }
 

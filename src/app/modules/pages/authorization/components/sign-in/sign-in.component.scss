@@ -3,9 +3,17 @@
   margin-bottom: 10px;
 }
 
-.fields, .buttons {
+.fields, .buttons, .error-message {
   margin-left: 15px;
   margin-right: 15px;
+}
+
+.error-message {
+  position: absolute;
+  bottom: 65px;
+  font-size: 10px;
+  margin-bottom: 0;
+  color: #f44336;
 }
 
 .sign-btn {
