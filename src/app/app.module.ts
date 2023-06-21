@@ -8,6 +8,7 @@ import { AuthorizationModule } from './modules/pages/authorization/authorization
 import { HomeModule } from './modules/pages/home/home.module';
 import { FormInputComponent } from './modules/common/form-input/form-input.component';
 import { UserAvatarComponent } from './modules/common/user-avatar/user-avatar.component';
+import { PreloaderFullPageModule } from './modules/common/preloader-full-page/preloader-full-page.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { UserAvatarComponent } from './modules/common/user-avatar/user-avatar.co
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    PreloaderFullPageModule,
     AppRoutingModule,
     AuthorizationModule,
     HomeModule,
