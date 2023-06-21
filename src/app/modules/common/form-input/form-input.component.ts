@@ -95,7 +95,7 @@ export class FormInputComponent extends BaseFormFieldDirective implements OnInit
     );
   }
 
-  protected changeValue(value: InputValueType): void {
+  protected changeValue = (value: InputValueType): void => {
     this.onChange(value);
     this.onTouched();
   };
