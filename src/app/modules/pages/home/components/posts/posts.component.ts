@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PostInfoModel } from '../../../../../common/models/post-info.model';
-import { posts } from '../../../../../common/posts';
+import { posts } from '../../../../../../db/posts';
 
 @Component({
   selector: 'app-posts',

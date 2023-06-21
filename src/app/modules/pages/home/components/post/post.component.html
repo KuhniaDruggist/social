@@ -26,7 +26,7 @@
       <span>{{postInfo?.likes === 0 ? '' : postInfo?.likes}}</span>
     </div>
     <div class="btn btn--comment">
-      <button mat-icon-button aria-label="Example icon button with a heart icon">
+      <button mat-icon-button aria-label="Example icon button with a heart icon" (click)="toggleViewComments()">
         <mat-icon>comment</mat-icon>
       </button>
       <span>{{postInfo?.comments?.length === 0 ? '' : postInfo?.comments?.length}}</span>
@@ -37,7 +37,9 @@
       </button>
     </div>
   </mat-card-actions>
-  <app-comments [comments]="postInfo?.comments"></app-comments>
+  <div *ngIf="postInfo?.comments && isCommentsOpened">
+    <app-comments [comments]="postInfo?.comments"></app-comments>
+  </div>
 </mat-card>
 
 <ng-template #avatarDefault>

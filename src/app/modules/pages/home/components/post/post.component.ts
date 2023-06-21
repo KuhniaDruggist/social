@@ -29,4 +29,10 @@ export class PostComponent {
   @Input()
   public postInfo: PostInfoModel | undefined;
 
+  public isCommentsOpened = false;
+
+  public toggleViewComments(): void {
+    this.isCommentsOpened = !this.isCommentsOpened;
+  }
+
 }
