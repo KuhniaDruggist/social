@@ -35,7 +35,7 @@ export class PostsService {
 
   /** Imitation a request for posts */
   public async getPostsFromServer$(): Promise<Array<PostInfoModel>> {
-    const { posts } = await import('../../../db/posts');
+    const { posts } = await import('../../../assets/db/posts');
     return posts;
   }
 
