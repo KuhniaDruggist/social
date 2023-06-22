@@ -14,6 +14,7 @@ import { finalize, Subscription } from 'rxjs';
 import { AuthFormModel } from '../../../../../common/models/auth-form-model';
 import { DataProviderService } from '../../../../../common/services/data-provider.service';
 import { KeysForDataProvides } from '../../../../../common/constants/keys-for-data-provides';
+import { PostsService } from '../../../../../common/services/posts.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -44,6 +45,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private readonly authService: AuthService,
+    private readonly postsService: PostsService,
     private readonly dataProviderService: DataProviderService,
     private readonly preloaderFullPageService: PreloaderFullPageService,
   ) {
@@ -96,8 +98,12 @@ export class SignInComponent implements OnInit {
             this.isLoading = false;
           }))
           .subscribe({
-            next: (userId: string) => {
+            next: async (userId: string) => {
               this.dataProviderService.setData(userId, KeysForDataProvides.SAVE_USER_ID);
+              const posts = await this.postsService.getPostsFromServer$();
+              if (posts) {
+                this.postsService.setPostsForUser(userId, posts);
+              }
               void this.authService.doAfterAuth();
             },
             error: (err: string) => { this.errorMessage = err },

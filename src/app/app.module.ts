@@ -9,6 +9,7 @@ import { HomeModule } from './modules/pages/home/home.module';
 import { FormInputComponent } from './modules/common/form-input/form-input.component';
 import { UserAvatarComponent } from './modules/common/user-avatar/user-avatar.component';
 import { PreloaderFullPageModule } from './modules/common/preloader-full-page/preloader-full-page.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PreloaderFullPageModule } from './modules/common/preloader-full-page/pr
     BrowserModule,
     BrowserAnimationsModule,
     PreloaderFullPageModule,
+    HttpClientModule,
     AppRoutingModule,
     AuthorizationModule,
     HomeModule,
