@@ -12,6 +12,8 @@ import { PreloaderFullPageService } from '../../../../../common/services/preload
 import { AuthService } from '../../../../../common/services/auth.service';
 import { finalize, Subscription } from 'rxjs';
 import { AuthFormModel } from '../../../../../common/models/auth-form-model';
+import { DataProviderService } from '../../../../../common/services/data-provider.service';
+import { KeysForDataProvides } from '../../../../../common/constants/keys-for-data-provides';
 
 @Component({
   selector: 'app-sign-in',
@@ -42,6 +44,7 @@ export class SignInComponent implements OnInit {
 
   constructor(
     private readonly authService: AuthService,
+    private readonly dataProviderService: DataProviderService,
     private readonly preloaderFullPageService: PreloaderFullPageService,
   ) {
     this.form = null;
@@ -87,13 +90,14 @@ export class SignInComponent implements OnInit {
       this.isLoading = true;
       this.preloaderFullPageService.showSpinner();
       this.subscription.add(
-        this.authService.login(this.form?.value)
+        this.authService.login$(this.form?.value)
           .pipe(finalize(() => {
             this.preloaderFullPageService.hideSpinner();
             this.isLoading = false;
           }))
           .subscribe({
             next: (userId: string) => {
+              this.dataProviderService.setData(userId, KeysForDataProvides.SAVE_USER_ID);
               void this.authService.doAfterAuth();
             },
             error: (err: string) => { this.errorMessage = err },
