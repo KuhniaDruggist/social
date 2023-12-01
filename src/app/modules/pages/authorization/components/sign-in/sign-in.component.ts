@@ -7,7 +7,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { NgIf} from '@angular/common';
 import { FormControlCustom } from '../../../../../common/models/form-control-custom';
 import { RouterLinks } from '../../../../../common/constants/router-links';
-import { RouterLinkWithHref } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { PreloaderFullPageService } from '../../../../../common/services/preloader-full-page.service';
 import { AuthService } from '../../../../../common/services/auth.service';
 import { finalize, Subscription } from 'rxjs';
@@ -28,7 +28,7 @@ import { PostsService } from '../../../../../common/services/posts.service';
     FormInputComponent,
     ReactiveFormsModule,
     NgIf,
-    RouterLinkWithHref,
+    RouterLink,
   ],
 })
 export class SignInComponent implements OnInit {
