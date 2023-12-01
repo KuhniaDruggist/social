@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from "../services/auth.service";
@@ -8,7 +8,7 @@ import { AuthService } from "../services/auth.service";
 @Injectable({
   providedIn: 'root',
 })
-export class HomeGuard implements CanActivate {
+export class HomeGuard  {
 
   constructor(private authService: AuthService) { }
 
